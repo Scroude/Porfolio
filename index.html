@@ -324,7 +324,7 @@
     <script>
         // Clé API injectée par l'environnement
         const apiKey = "AIzaSyC8cfAhH-ZDZpB72uVWNYsm-olxDEdenYQ"; 
-        const model = "gemini-2.5-flash";
+        const model = "gemini-flash-latest";
 
         async function sendPortfolioMessage() {
             const inputField = document.getElementById('portfolio-chat-input');
@@ -389,7 +389,7 @@ Règles :
         }
 
         async function callGeminiAPI(prompt, systemInstruction) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
                 systemInstruction: { parts: [{ text: systemInstruction }] },
@@ -403,7 +403,10 @@ Règles :
                 try {
                     const response = await fetch(url, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'x-goog-api-key': apiKey 
+                        },
                         body: JSON.stringify(payload)
                     });
                     
