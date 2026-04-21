@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théo ROLLIN - Portfolio | Analyste Programmeur & Architecte Logiciel</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6', // blue-500
+                        secondary: '#1e293b', // slate-800
+                        darkbg: '#0f172a', // slate-900
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .timeline-dot {
+            width: 16px; height: 16px; border-radius: 50%;
+            background-color: #3b82f6; position: absolute; left: -8px; top: 6px;
+            box-shadow: 0 0 0 4px #0f172a;
+        }
+        .timeline-item { border-left: 2px solid #334155; padding-left: 24px; position: relative; padding-bottom: 2rem; }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .skill-tag { transition: all 0.3s ease; }
+        .skill-tag:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5); border-color: #3b82f6; }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-200 antialiased selection:bg-primary selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-darkbg/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 font-bold text-2xl tracking-tighter text-white">
+                    T<span class="text-primary">R</span>.
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#accueil" class="hover:text-primary transition px-3 py-2 rounded-md text-sm font-medium">Accueil</a>
+                        <a href="#a-propos" class="hover:text-primary transition px-3 py-2 rounded-md text-sm font-medium">À Propos</a>
+                        <a href="#experience" class="hover:text-primary transition px-3 py-2 rounded-md text-sm font-medium">Parcours</a>
+                        <a href="#projets" class="hover:text-primary transition px-3 py-2 rounded-md text-sm font-medium">Projets</a>
+                        <a href="#ia" class="bg-primary/10 text-primary border border-primary/30 hover:bg-primary hover:text-white transition px-4 py-2 rounded-full text-sm font-medium"><i class="fa-solid fa-sparkles mr-1"></i> Discuter avec mon IA</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-slate-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-slate-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#accueil" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-700">Accueil</a>
+                <a href="#a-propos" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-700">À Propos</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-700">Parcours</a>
+                <a href="#projets" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-700">Projets</a>
+                <a href="#ia" class="block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-slate-700"><i class="fa-solid fa-sparkles mr-1"></i> Mon IA</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 flex flex-col items-center justify-center text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-primary font-medium tracking-wide mb-4 uppercase">Bonjour, je suis</h2>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">Théo <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-300">ROLLIN</span></h1>
+            <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl mx-auto">
+                Analyste Programmeur & futur Architecte Logiciel. Je conçois des systèmes fiables, scalables et orientés métier.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#projets" class="bg-primary hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full transition shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                    Voir mes projets
+                </a>
+                <a href="#contact" class="bg-transparent border border-slate-600 hover:border-slate-400 text-white font-semibold py-3 px-8 rounded-full transition">
+                    Me contacter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- À Propos & Compétences -->
+    <section id="a-propos" class="py-20 bg-slate-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                        <span class="w-8 h-1 bg-primary mr-4 inline-block"></span> À Propos
+                    </h2>
+                    <p class="text-slate-400 leading-relaxed mb-6 text-justify">
+                        Fort de plus de 4 ans d'expérience dans la conception, le développement et la maintenance d'applications, j'ai évolué sur des environnements techniques variés allant de l'informatique industrielle (ERP, gestion de production) au secteur très exigeant de la santé (systèmes critiques de transfusion sanguine).
+                    </p>
+                    <p class="text-slate-400 leading-relaxed text-justify">
+                        Titulaire d'un Mastère en Architecture des Logiciels (ESGI), je maîtrise le cycle de vie complet du développement. Mon objectif est d'allier mon expertise WinDev/WebDev avec des architectures modernes (API, Microservices, Node.js, Spring Boot) pour piloter des projets d'envergure.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-6">Mon Arsenal Technique</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-solid fa-code text-primary mr-2"></i>WinDev / WebDev</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-solid fa-database text-primary mr-2"></i>SQL / HFSQL</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-brands fa-java text-primary mr-2"></i>Java / Spring Boot</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-brands fa-node-js text-primary mr-2"></i>Node.js</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-brands fa-angular text-primary mr-2"></i>Angular</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-brands fa-docker text-primary mr-2"></i>Docker</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-solid fa-network-wired text-primary mr-2"></i>Architecture N-Tiers</span>
+                        <span class="skill-tag px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 cursor-default"><i class="fa-brands fa-jira text-primary mr-2"></i>Jira / Confluence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parcours (Expériences & Formation) -->
+    <section id="experience" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center justify-center text-center">
+                <span class="w-8 h-1 bg-primary mr-4 inline-block"></span> Mon Parcours <span class="w-8 h-1 bg-primary ml-4 inline-block"></span>
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Expériences -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center"><i class="fa-solid fa-briefcase mr-3"></i> Expériences Pro</h3>
+                    <div class="ml-4">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="text-xl font-bold text-white">Analyste Programmeur</h4>
+                            <p class="text-primary font-medium text-sm mb-2">GPI France (Reims) | Déc. 2024 - Présent</p>
+                            <p class="text-slate-400 text-sm">Développement sur un logiciel critique de gestion des transfusions sanguines en milieux hospitaliers (CHU, Cliniques). Création d'une application web pour l'enregistrement des constantes vitales des patients.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="text-xl font-bold text-white">Analyste Programmeur (Alternance)</h4>
+                            <p class="text-primary font-medium text-sm mb-2">SAMBP (Charleville-Mézières) | Sept. 2021 - Sept. 2024</p>
+                            <p class="text-slate-400 text-sm">Développement d'un ERP interne et d'applications de gestion des achats. Création d'applications d'informatique industrielle (comptage de débit de bois sur poste usine). Support utilisateur niveau 1.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formations -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center"><i class="fa-solid fa-graduation-cap mr-3"></i> Formations</h3>
+                    <div class="ml-4">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="text-xl font-bold text-white">Mastère Architecture des Logiciels</h4>
+                            <p class="text-primary font-medium text-sm mb-2">ESGI (Lille) | 2021 - 2024</p>
+                            <p class="text-slate-400 text-sm">Spécialisation en conception logicielle, méthodologies Agile/Scrum, et technologies modernes (Spring Boot, Node.js, Angular, Docker).</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="text-xl font-bold text-white">BTS SIO (Option SLAM)</h4>
+                            <p class="text-primary font-medium text-sm mb-2">Lycée Franklin Roosevelt (Reims) | 2019 - 2021</p>
+                            <p class="text-slate-400 text-sm">Apprentissage des bases du développement orienté objet, des bases de données et du développement web (PHP, Java, HTML/CSS).</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="text-xl font-bold text-white">BAC PRO SN RISC</h4>
+                            <p class="text-primary font-medium text-sm mb-2">Lycée J.B. Clément (Vivier-au-Court) | 2019</p>
+                            <p class="text-slate-400 text-sm">Bases solides en réseaux informatiques et systèmes communicants.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets Réalisés -->
+    <section id="projets" class="py-20 bg-slate-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+                <span class="w-8 h-1 bg-primary mr-4 inline-block"></span> Projets Marquants
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projet 1 -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-700 hover:border-primary transition duration-300 group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center overflow-hidden">
+                        <i class="fa-solid fa-heart-pulse text-6xl text-slate-600 group-hover:scale-110 group-hover:text-red-400 transition duration-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Web App - Constantes Vitales</h3>
+                        <p class="text-slate-400 text-sm mb-4">Application web développée pour le recueil en temps réel des constantes des patients lors de transfusions sanguines.</p>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">WebDev</span>
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">Santé</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-700 hover:border-primary transition duration-300 group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center overflow-hidden">
+                        <i class="fa-solid fa-industry text-6xl text-slate-600 group-hover:scale-110 group-hover:text-yellow-400 transition duration-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Logiciel Usine - Débit de Bois</h3>
+                        <p class="text-slate-400 text-sm mb-4">Conception d'une application déployée sur des postes industriels pour l'automatisation du comptage des matériaux.</p>
+                        <div class="flex gap-2 text-xs">
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">WinDev</span>
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">Industrie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3 (OmniSpace) -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-700 hover:border-primary transition duration-300 group relative flex flex-col">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg z-10 shadow-md">En cours</div>
+                    <div class="h-48 bg-slate-800 flex items-center justify-center overflow-hidden relative shrink-0">
+                        <i class="fa-solid fa-cubes text-6xl text-slate-600 group-hover:scale-110 group-hover:text-purple-400 transition duration-500"></i>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-xl font-bold text-white mb-2">OmniSpace</h3>
+                        <p class="text-slate-400 text-sm mb-4">Plateforme unifiée combinant GMAO, ERP et système de support. Développement actif de l'architecture, de l'authentification et du module de tickets.</p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-6">
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">Angular</span>
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">Tailwind</span>
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">NestJS</span>
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded">PostgreSQL</span>
+                        </div>
+                        <div class="mt-auto flex gap-3">
+                            <a href="https://gitlab.com/theorollin080/omnispace" target="_blank" title="Code source GitLab" class="flex-1 flex justify-center items-center bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white text-sm py-2 px-3 rounded-lg transition duration-300">
+                                <i class="fa-brands fa-gitlab mr-2"></i> GitLab
+                            </a>
+                            <a href="#" target="_blank" title="Tester l'application" class="flex-1 flex justify-center items-center bg-primary hover:bg-blue-600 text-white text-sm py-2 px-3 rounded-lg transition duration-300 shadow-md">
+                                <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Tester
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive AI Section (Gemini API) -->
+    <section id="ia" class="py-24 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-darkbg via-blue-900/10 to-darkbg -z-10"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center justify-center p-3 bg-primary/20 rounded-full mb-6 text-primary">
+                <i class="fa-solid fa-microchip text-3xl"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Interrogez mon Clone IA</h2>
+            <p class="text-slate-400 mb-10 max-w-2xl mx-auto">
+                Envie d'en savoir plus sur mon approche de développement, mes compétences ou mes expériences ? Posez vos questions directement à mon assistant virtuel propulsé par l'Intelligence Artificielle.
+            </p>
+
+            <!-- Chat Interface -->
+            <div class="bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden text-left flex flex-col h-[500px]">
+                <div class="bg-slate-800 px-6 py-4 border-b border-slate-700 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold">
+                            TR
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white">Assistant Virtuel de Théo</h3>
+                            <p class="text-xs text-green-400 flex items-center"><span class="w-2 h-2 rounded-full bg-green-400 mr-1"></span> En ligne</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-sparkles text-slate-500"></i>
+                </div>
+                
+                <div id="portfolio-chat-messages" class="flex-1 p-6 overflow-y-auto bg-slate-900/50 flex flex-col space-y-4">
+                    <!-- Default Message -->
+                    <div class="flex items-start">
+                        <div class="bg-slate-800 border border-slate-700 text-slate-200 px-4 py-3 rounded-2xl rounded-tl-sm max-w-[80%] shadow-md">
+                            Bonjour ! Je suis l'IA entraînée sur le profil de Théo ROLLIN. Demandez-moi quelles sont ses compétences en bases de données, son expérience avec WinDev ou son parcours scolaire !
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-slate-800 border-t border-slate-700">
+                    <div class="relative flex items-center">
+                        <input type="text" id="portfolio-chat-input" placeholder="Posez votre question ici..." class="w-full bg-slate-900 text-white border border-slate-600 rounded-full pl-6 pr-14 py-3 focus:outline-none focus:border-primary transition shadow-inner" onkeypress="if(event.key === 'Enter') sendPortfolioMessage()">
+                        <button onclick="sendPortfolioMessage()" class="absolute right-2 w-10 h-10 bg-primary hover:bg-blue-600 rounded-full text-white flex items-center justify-center transition">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-slate-900 border-t border-slate-800 py-12 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h2 class="text-2xl font-bold text-white mb-2">Théo ROLLIN</h2>
+                    <p class="text-slate-400">Analyste Programmeur & Architecte Logiciel</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end space-y-2">
+                    <a href="mailto:theorollin080@gmail.com" class="text-slate-300 hover:text-primary transition flex items-center"><i class="fa-solid fa-envelope mr-2"></i> theorollin080@gmail.com</a>
+                    <p class="text-slate-300 flex items-center"><i class="fa-solid fa-phone mr-2"></i> 07 81 88 19 11</p>
+                    <p class="text-slate-300 flex items-center"><i class="fa-solid fa-location-dot mr-2"></i> Rethel, France</p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+                <p>&copy; 2026 Théo ROLLIN. Tous droits réservés.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-primary transition text-xl"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-primary transition text-xl"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script AI Gemini -->
+    <script>
+        // Clé API injectée par l'environnement
+        const apiKey = ""; 
+        const model = "gemini-2.5-flash-preview-09-2025";
+
+        async function sendPortfolioMessage() {
+            const inputField = document.getElementById('portfolio-chat-input');
+            const messageText = inputField.value.trim();
+            if (!messageText) return;
+
+            // Afficher le message utilisateur
+            appendPortfolioMessage(messageText, 'user');
+            inputField.value = '';
+            
+            // Afficher l'indicateur de chargement
+            const loadingId = appendPortfolioMessage('<i class="fa-solid fa-circle-notch fa-spin text-primary mr-2"></i> Théo réfléchit...', 'ai', true);
+
+            // Construction du contexte basé sur le profil de Théo
+            const systemInstruction = `Tu es l'assistant virtuel de Théo ROLLIN, présent sur son portfolio.
+Ton but est de répondre aux questions des visiteurs (recruteurs, collaborateurs) pour mettre en valeur son profil.
+Voici les informations sur Théo :
+- Métier : Analyste Programmeur WinDev, évolue vers Chef de projet / Architecte Logiciel.
+- Localisation : Rethel.
+- Contact : theorollin080@gmail.com / 0781881911.
+- Expérience actuelle : Depuis déc 2024 chez GPI France (Reims). Développe un logiciel de gestion des transfusions sanguines (milieu médical, critique) et une app web pour les constantes vitales.
+- Expérience passée : Alternance chez SAMBP (Charleville-Mézières) de 2021 à 2024. Développement ERP interne, logiciel usine comptage de bois, support.
+- Projet personnel actuel : "OmniSpace", un logiciel unifié (GMAO, ERP, Support). Technologies : Angular, Tailwind CSS, NestJS, PostgreSQL.
+- Formation : Mastère & Bachelor Architecture des Logiciels (ESGI Lille, 2024), BTS SIO (Reims, 2021), BAC PRO SN RISC (2019).
+- Compétences techniques : WinDev, WebDev, SQL, HFSQL, Java, PHP, HTML/CSS, JS, Node.js, NestJS, Angular, Tailwind, Spring Boot, Docker, PostgreSQL, architecture Client/Serveur, N-Tiers, Agile/Scrum.
+- Outils : Jira, Confluence, GDS, Git.
+- Langue : Anglais (TOEIC).
+- Soft skills : Esprit d'équipe (sport), veille technologique, aisance relationnelle.
+
+Règles :
+1. Réponds toujours à la première personne du pluriel (ex: "Nous avons travaillé...") ou à la troisième personne en parlant de Théo ("Théo a développé..."). Ne dis pas "Je suis Théo", dis "Je suis l'IA de Théo".
+2. Sois concis, professionnel et enthousiaste (3 phrases maximum).
+3. Si on te demande quelque chose qui n'est pas dans ces données, dis que tu n'as pas cette information mais invite à le contacter par email.
+4. Formate tes réponses en HTML basique (utilise <b> pour mettre en gras les compétences clés).`;
+
+            const responseText = await callGeminiAPI(messageText, systemInstruction);
+            
+            // Supprimer le loading et afficher la réponse
+            document.getElementById(loadingId).remove();
+            appendPortfolioMessage(responseText, 'ai');
+        }
+
+        function appendPortfolioMessage(text, sender, isLoading = false) {
+            const messagesDiv = document.getElementById('portfolio-chat-messages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'flex items-start ' + (sender === 'user' ? 'justify-end' : '');
+            
+            if (isLoading) {
+                msgDiv.id = 'loading-' + Date.now();
+            }
+
+            const bubbleClass = sender === 'user'
+                ? 'bg-primary text-white px-4 py-3 rounded-2xl rounded-tr-sm max-w-[80%] shadow-md'
+                : 'bg-slate-800 border border-slate-700 text-slate-200 px-4 py-3 rounded-2xl rounded-tl-sm max-w-[80%] shadow-md';
+
+            msgDiv.innerHTML = `<div class="${bubbleClass}">${text.replace(/\n/g, '<br>')}</div>`;
+            
+            messagesDiv.appendChild(msgDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            
+            return msgDiv.id;
+        }
+
+        async function callGeminiAPI(prompt, systemInstruction) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] },
+                generationConfig: { temperature: 0.7 }
+            };
+
+            const delays = [1000, 2000, 4000, 8000, 16000];
+            let attempt = 0;
+
+            while (attempt < 5) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
+                    
+                    const data = await response.json();
+                    let text = data.candidates?.[0]?.content?.parts?.[0]?.text || "Erreur de réponse.";
+                    // Remplacement basique du markdown ** par du gras HTML
+                    return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+                } catch (error) {
+                    if (attempt >= 4) {
+                        return "Désolé, je rencontre une erreur réseau. Veuillez réessayer plus tard ou contacter Théo directement.";
+                    }
+                    await new Promise(r => setTimeout(r, delays[attempt]));
+                    attempt++;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
